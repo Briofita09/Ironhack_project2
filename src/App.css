@@ -1,38 +1,37 @@
 .App {
   text-align: center;
+  
 }
+/* .Hero-img{
+  height: 95vh;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-image: url("./images/stock-photo--d-illustration-of-molecule-model-science-background-with-molecules-chemical-formulas-626488493.jpg");
+} */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Navbar {
+  position: fixed;
+  background-color: blue;
+  width: 100vw;
+  bottom: 0px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 50px;
 }
-
-.App-link {
-  color: #61dafb;
+.Login {
+  margin: 3px;
+   
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Login span{
+  margin-right: 20px;
+  color: black;
+}
+.icon{
+  margin-left: 10px;
+  color:black;
 }
