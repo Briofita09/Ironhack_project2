@@ -19,7 +19,7 @@ class LogIn extends Component {
   };
 
   render() {
-    console.log(this.state);
+    
     return (
       <div>
         <form className="container m-5">

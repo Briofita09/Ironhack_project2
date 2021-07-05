@@ -1,9 +1,9 @@
-import HomePage from './Components/HomePage';
-import Navbar from './Components/NavBar';
-import './App.css';
+import HomePage from './HomePage';
+import Navbar from './NavBar';
+import '../App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route } from "react-router-dom";
-import LogIn from './Components/LogIn';
+import LogIn from './LogIn';
 
 
 function App() {
