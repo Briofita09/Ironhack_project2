@@ -1,24 +1,21 @@
 import React from "react";
-import chemyMass from "chemymass";
 import molFormula from "molecular-formula";
 
 export default class Calculadora extends React.Component {
   state = {
     formula: "",
-    grams: "",
+    grams: 0,
     volume: "",
     mols: "",
   };
 
   calculate = () => {
     this.setState({ formula: this.state.formula });
-    console.log(this.formula);
     let x = new molFormula(this.state.formula);
     let mass = x.getMass();
-    let result = mass * this.state.volume * this.state.mols;
-    console.log(result);
-    return result;
+    return (this.grams = mass * this.state.volume * this.state.mols);
   };
+
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -28,16 +25,12 @@ export default class Calculadora extends React.Component {
     this.calculate();
   };
 
-  /*    var formula = "NaOH";
-  var precision = 3;
-  console.log(chemyMass(formula, precision));  */
-
   render() {
     console.log(this.state);
     return (
-      <div>
-        <form>
-          <div>
+      <div className="all">
+        <form className="calcForm">
+          <div className="m-5 form-group row">
             <label>Digite a Formula:</label>
             <input
               placeholder="Digite a Formula"
@@ -46,31 +39,38 @@ export default class Calculadora extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <div>
+          <div className="m-5 form-group row">
             <label>Digite a concentração em M ou N (apenas numeros): </label>
             <input
-              placeholder="Digite a Concentração desejada (apenas numeros)"
+              placeholder="Digite a concentração desejada"
               name="mols"
               value={this.state.mols}
               onChange={this.handleChange}
             />
           </div>
-          <div>
+          <div className="m-5 form-group row">
             <label>Digite o volume desejados em litros: </label>
             <input
-              placeholder="Digite o Volume desejado"
+              placeholder="Digite o volume desejado"
               name="volume"
               value={this.state.volume}
               onChange={this.handleChange}
             />
           </div>
           <div>
-            <button type="button" onClick={this.calculate}>
+            <button
+              type="button"
+              className="btn btn-primary m-5"
+              onClick={this.calculate}
+            >
               Calcule
             </button>
           </div>
-          <p>{this.grams}</p>
         </form>
+        <p>
+          Você deve pesar: <span>{this.grams} </span>
+          gramas
+        </p>
       </div>
     );
   }
