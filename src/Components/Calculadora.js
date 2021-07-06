@@ -1,5 +1,6 @@
 import React from "react";
 import chemyMass from "chemymass";
+import molFormula from "molecular-formula";
 
 export default class Calculadora extends React.Component {
   state = {
@@ -9,26 +10,30 @@ export default class Calculadora extends React.Component {
     mols: "",
   };
 
-  calculate(formula, grams, volume, mols) {
-    this.setState({ formula: chemyMass(this.state.formula) });
-    let result = (this.grams = this.formula * this.volume * this.mols);
+  calculate = () => {
+    this.setState({ formula: this.state.formula });
+    console.log(this.formula);
+    let x = new molFormula(this.state.formula);
+    let mass = x.getMass();
+    let result = mass * this.state.volume * this.state.mols;
     console.log(result);
     return result;
-  }
+  };
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handeClick() {
+  handeClick = () => {
     console.log(this.calculate());
     this.calculate();
-  }
+  };
 
-  /* var formula = "NaOH";
+  /*    var formula = "NaOH";
   var precision = 3;
-  console.log(chemyMass(formula, precision)); */
+  console.log(chemyMass(formula, precision));  */
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <form>
