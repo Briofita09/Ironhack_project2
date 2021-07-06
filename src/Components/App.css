@@ -35,3 +35,19 @@
   margin-left: 10px;
   color:black;
 }
+
+.calcForm {
+  text-align: left;
+  font-weight: bold;
+}
+
+.all {
+  height: 100vh;
+  background-size: cover;
+  background-image: url(../img/calc_img.jpg);
+  background-repeat: no-repeat;
+}
+
+span {
+  font-weight: bold;
+}
