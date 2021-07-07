@@ -24,9 +24,9 @@ function Navbar() {
               <NavLink
                 className="nav-link"
                 activeClassName="active"
-                to="/:id/home"
+                to="/singup"
               >
-                Home
+                Criar nova conta
               </NavLink>
             </li>
             <li className="nav-item">
@@ -45,15 +45,6 @@ function Navbar() {
                 to="/:id/create"
               >
                 Adicionar Solução
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                activeClassName="active"
-                to="/:id/edit"
-              >
-                Editar Solução
               </NavLink>
             </li>
             <li className="nav-item">

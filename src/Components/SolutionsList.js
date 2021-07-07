@@ -11,10 +11,11 @@ export default class SolutionsList extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.state._id}`
+        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`
       );
       console.log(response);
       this.setState({ solutions: [...response.data.solucoes] });
+      console.log(this.state.solutions);
     } catch (err) {
       console.log(err);
     }
@@ -22,28 +23,17 @@ export default class SolutionsList extends React.Component {
 
   render() {
     return (
-      <table className="table-dark">
-        <thead>
-          <tr className="table-dark">
-            <th className="table-dark">Header placeholder</th>
-            <th className="table-dark">Header placeholder</th>
-            <th className="table-dark">Header placeholder</th>
-            <th className="table-dark">Header placeholder</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.state.solutions.map((params) => {
+      <div>
+        <ul>
+          {this.state.solutions.map((solution) => {
             return (
-              <tr className="table-dark" key={params.name}>
-                <td className="table-dark">{params.name}</td>
-                <td className="table-dark">{params.lote}</td>
-                <td className="table-dark">{params.responsavel}</td>
-                <td className="table-dark">{params.data_de_fabricacao}</td>
-              </tr>
+              <li>
+                <p>{solution.name}</p>
+              </li>
             );
           })}
-        </tbody>
-      </table>
+        </ul>
+      </div>
     );
   }
 }
