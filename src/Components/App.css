@@ -2,30 +2,22 @@
   text-align: center;
   
 }
-/* .Hero-img{
+ .Hero-img{
   height: 95vh;
-
-  
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  background-image: url("./images/stock-photo--d-illustration-of-molecule-model-science-background-with-molecules-chemical-formulas-626488493.jpg");
-} */
-
-.Navbar {
-  position: fixed;
-  background-color: blue;
-  width: 100vw;
-  bottom: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50px;
+ }
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
-.Login {
-  margin: 3px;
-   
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
 }
 .Login span{
   margin-right: 20px;

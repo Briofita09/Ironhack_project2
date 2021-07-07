@@ -1,5 +1,4 @@
 import React from "react";
-
 function TextInput(props) {
   return (
     <div className="mb-3">
@@ -17,5 +16,4 @@ function TextInput(props) {
     </div>
   );
 }
-
-export default TextInput
+export default TextInput;

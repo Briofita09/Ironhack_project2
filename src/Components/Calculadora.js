@@ -30,7 +30,7 @@ export default class Calculadora extends React.Component {
     return (
       <div className="all">
         <form className="calcForm">
-          <div className="m-5 form-group row">
+          <div className="p-5 form-group row">
             <label>Digite a Formula:</label>
             <input
               placeholder="Digite a Formula"
@@ -39,7 +39,7 @@ export default class Calculadora extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="m-5 form-group row">
+          <div className="p-5 form-group row">
             <label>Digite a concentração em M ou N (apenas numeros): </label>
             <input
               placeholder="Digite a concentração desejada"
@@ -48,7 +48,7 @@ export default class Calculadora extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="m-5 form-group row">
+          <div className="p-5 form-group row">
             <label>Digite o volume desejados em litros: </label>
             <input
               placeholder="Digite o volume desejado"
@@ -68,8 +68,8 @@ export default class Calculadora extends React.Component {
           </div>
         </form>
         <p>
-          Você deve pesar: <span>{this.grams} </span>
-          gramas
+          Você deve utilizar: <span>{this.grams} </span>
+          ml/gramas
         </p>
       </div>
     );
