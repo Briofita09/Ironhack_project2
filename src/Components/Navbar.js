@@ -1,10 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand nAvbar" to="/">
           Chem Lab App
         </Link>
         <button
@@ -33,7 +33,7 @@ function Navbar() {
               <NavLink
                 className="nav-link"
                 activeClassName="active"
-                to="/:id/solucoes"
+                to={`/${props.user}/solucoes`}
               >
                 Soluções
               </NavLink>
@@ -42,7 +42,7 @@ function Navbar() {
               <NavLink
                 className="nav-link"
                 activeClassName="active"
-                to="/:id/create"
+                to={`/${props.user}/create`}
               >
                 Adicionar Solução
               </NavLink>
@@ -51,7 +51,7 @@ function Navbar() {
               <NavLink
                 className="nav-link"
                 activeClassName="active"
-                to="/:id/calculadora"
+                to={`/${props.user}/calculadora`}
               >
                 Calculadora
               </NavLink>
