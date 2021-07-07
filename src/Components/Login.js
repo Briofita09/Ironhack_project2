@@ -1,7 +1,7 @@
+import React from "react";
 import axios from "axios";
-import React, { Component } from "react";
-import TextInput from "./TextInput";
-class LogIn extends Component {
+
+class LogIn extends React.Component {
   state = {
     email: "",
     password: "",
@@ -13,13 +13,20 @@ class LogIn extends Component {
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
-
   handleBlur = (event) => {
     this.setState({
       isBlurred: { ...this.state.isBlurred, [event.target.name]: true },
     });
   };
-
+  renderClassname = (error, blur) => {
+    if (error && blur) {
+      return "is-invalid";
+    } else if (!blur) {
+      return "";
+    } else {
+      return "is-valid";
+    }
+  };
   renderFeedback = (error, blur, validMessage) => {
     if (error && blur) {
       return <div className="invalid-feedback">{error}</div>;
@@ -29,6 +36,7 @@ class LogIn extends Component {
       return <div className="valid-feedback">{validMessage}</div>;
     }
   };
+
   validate = (formValues) => {
     let errors = {};
     if (
@@ -40,7 +48,7 @@ class LogIn extends Component {
     if (
       !formValues.password ||
       !formValues.password.match(
-        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/g
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{1,}$/g
       )
     ) {
       errors = { ...errors, password: "Your password is too weak" };
@@ -54,10 +62,15 @@ class LogIn extends Component {
       let response = await axios.get(
         `https://ironrest.herokuapp.com/findOne/FelipeEGabriel?email=${this.state.email}`
       );
+      console.log(response);
+      console.log(this.state.email);
+      console.log(this.state.password);
       if (
         response.data.password === this.state.password &&
         response.data.email === this.state.email
       ) {
+        this.props.setUser(response.data._id);
+        this.props.history.push(`/${response.data._id}/solucoes`);
         console.log("usuario valido");
       } else {
         console.log("usuario invalido");
@@ -66,26 +79,64 @@ class LogIn extends Component {
       console.log(err);
     }
   };
+
   render() {
+    const errors = this.validate(this.state);
     return (
-      <div>
-        <form className="container m-5">
-          <TextInput
-            label="Email address"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <TextInput
-            label="Password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
+      <div className="col-lg-6 m-4">
+        <form>
+          {/* Email input */}
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              className={`form-control ${this.renderClassname(
+                errors.email,
+                this.state.isBlurred.email
+              )}`}
+              id="exampleInputEmail1"
+              name="email"
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}
+              value={this.state.email}
+              required
+            />
+            {this.renderFeedback(
+              errors.email,
+              this.state.isBlurred.email,
+              "You typed a valid e-mail"
+            )}
+          </div>
+          {/* Password Input */}
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Password</label>
+            <input
+              type="password"
+              className={`form-control ${this.renderClassname(
+                errors.password,
+                this.state.isBlurred.password
+              )}`}
+              id="exampleInputPassword1"
+              name="password"
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}
+              value={this.state.password}
+              required
+            />
+            {this.renderFeedback(
+              errors.password,
+              this.state.isBlurred.password,
+              "You typed a valid password"
+            )}
+          </div>
+          <button
+            type="submit"
+            className="btn mt-5 btn-primary"
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </button>
         </form>
-        <button onClick={this.handleSubmit} className="m-5 btn btn-primary">
-          Submit
-        </button>
       </div>
     );
   }

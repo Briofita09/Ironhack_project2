@@ -30,6 +30,7 @@ export default class SolutionsList extends React.Component {
             <th>Concentração</th>
             <th>Validade</th>
             <th>Responsavel</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -40,27 +41,30 @@ export default class SolutionsList extends React.Component {
                 <td>{params.concentracao}</td>
                 <td>{params.validade}</td>
                 <td>{params.responsavel}</td>
-                <Link
-                  className="me-2"
-                  to={`/:id/edit/${params.name}`}
-                  title="Edit"
-                >
-                  <i className="fas fa-edit"></i>
-                </Link>
-                <Link
-                  className="me-2"
-                  to={`/:id/details/${params.name}`}
-                  title="View details"
-                >
-                  <i className="fas fa-info-circle"></i>
-                </Link>
-                <Link
-                  to={`/:id/delete/${params.name}`}
-                  title="Delete character"
-                  className="text-danger"
-                >
-                  <i className="fas fa-trash-alt"></i>
-                </Link>
+                <td>
+                  <Link
+                    className="me-5"
+                    to={`/:id/edit/${params.name}`}
+                    title="Editar"
+                  >
+                    <i className="fas fa-edit"></i>
+                  </Link>
+                  <Link
+                    className="me-5"
+                    to={`/:id/details/${params.name}`}
+                    title="Ver detalhes"
+                  >
+                    <i className="fas fa-info-circle"></i>
+                  </Link>
+
+                  <Link
+                    to={`/:id/delete/${params.name}`}
+                    title="Deletar solução"
+                    className="text-danger"
+                  >
+                    <i className="fas fa-trash-alt"></i>
+                  </Link>
+                </td>
               </tr>
             );
           })}
