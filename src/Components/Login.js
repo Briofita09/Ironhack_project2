@@ -5,10 +5,49 @@ class LogIn extends Component {
   state = {
     email: "",
     password: "",
+    isBlurred: {
+      email: false,
+      password: false,
+    },
   };
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
+
+  handleBlur = (event) => {
+    this.setState({
+      isBlurred: { ...this.state.isBlurred, [event.target.name]: true },
+    });
+  };
+
+  renderFeedback = (error, blur, validMessage) => {
+    if (error && blur) {
+      return <div className="invalid-feedback">{error}</div>;
+    } else if (!blur) {
+      return null;
+    } else {
+      return <div className="valid-feedback">{validMessage}</div>;
+    }
+  };
+  validate = (formValues) => {
+    let errors = {};
+    if (
+      !formValues.email ||
+      !formValues.email.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g)
+    ) {
+      errors = { ...errors, email: "Invalid E-mail" };
+    }
+    if (
+      !formValues.password ||
+      !formValues.password.match(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/g
+      )
+    ) {
+      errors = { ...errors, password: "Your password is too weak" };
+    }
+    return errors;
+  };
+
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
