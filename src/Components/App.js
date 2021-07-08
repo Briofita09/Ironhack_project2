@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import LogIn from "./Login";
 import Singup from "./Singup";
 import Calculadora from "./Calculadora";
+import SolutionsList from "./SolutionsList";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
           }}
         />
         <Route exact path="/singup" component={Singup} />
-        <Route exact path="/:id/calculadora" component={Calculadora} />
+        <Route exact path="/:_id/calculadora" component={Calculadora} />
+        <Route exact path="/:_id/solucoes" component={SolutionsList} />
       </BrowserRouter>
     </div>
   );
