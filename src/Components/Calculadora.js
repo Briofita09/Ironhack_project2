@@ -22,12 +22,10 @@ export default class Calculadora extends React.Component {
   };
 
   handeClick = () => {
-    console.log(this.calculate());
     this.calculate();
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="all">
         <form className="calcForm">

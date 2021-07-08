@@ -13,21 +13,10 @@ export default class NewSolution extends React.Component {
     sol_id: "",
   };
 
-  /*   componentDidMount = async () => {
-    try {
-      const response = await axios.get(
-        `https://ironrest.herokuapp.com/FelipeEGabriel/`
-      );
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
-  }; */
-
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-      sol_id: Date.now(),
+      sol_id: Date.now().toString(),
     });
     console.log(
       `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`

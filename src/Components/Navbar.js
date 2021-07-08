@@ -10,21 +10,7 @@ function Navbar(props) {
         <Link className="navbar-brand nAvbar" to="/">
           Chem Lab
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarToggleExternalContent"
-          aria-controls="navbarToggleExternalContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className="collapse navbar-collapse"
-          id="navbarToggleExternalContent"
-        >
+        <div>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink
@@ -32,7 +18,7 @@ function Navbar(props) {
                 activeClassName="active"
                 to="/singup"
               >
-                Novo Usuario
+                <i class="fas fa-user-plus"></i>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -41,7 +27,7 @@ function Navbar(props) {
                 activeClassName="active"
                 to={`/${props.user}/solucoes`}
               >
-                Soluções
+                <i class="fas fa-vials"></i>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -50,7 +36,7 @@ function Navbar(props) {
                 activeClassName="active"
                 to={`/${props.user}/create`}
               >
-                Nova Solução
+                <i class="fas fa-plus"></i>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -59,7 +45,7 @@ function Navbar(props) {
                 activeClassName="active"
                 to={`/${props.user}/calculadora`}
               >
-                Calculadora
+                <i class="fas fa-calculator"></i>
               </NavLink>
             </li>
           </ul>
