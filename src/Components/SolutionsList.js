@@ -36,7 +36,7 @@ export default class SolutionsList extends React.Component {
         <tbody>
           {this.state.solutions.map((params) => {
             return (
-              <tr className="table-dark" key={params.name}>
+              <tr className="table-dark" key={params.sol_id}>
                 <td>{params.name}</td>
                 <td>{params.concentracao}</td>
                 <td>{params.validade}</td>
@@ -44,21 +44,21 @@ export default class SolutionsList extends React.Component {
                 <td>
                   <Link
                     className="me-5"
-                    to={`/:id/edit/${params.name}`}
+                    to={`/:_id/edit/${params.sol_id}`}
                     title="Editar"
                   >
                     <i className="fas fa-edit"></i>
                   </Link>
                   <Link
                     className="me-5"
-                    to={`/:id/details/${params.name}`}
+                    to={`/:_id/details/${params.sol_id}`}
                     title="Ver detalhes"
                   >
                     <i className="fas fa-info-circle"></i>
                   </Link>
 
                   <Link
-                    to={`/:id/delete/${params.name}`}
+                    to={`/:_id/delete/${params.sol_id}`}
                     title="Deletar solução"
                     className="text-danger"
                   >

@@ -9,6 +9,7 @@ import Singup from "./Singup";
 import Calculadora from "./Calculadora";
 import SolutionsList from "./SolutionsList";
 import NewSolution from "./NewSolution";
+import EditSolution from "./EditSolution";
 
 class App extends React.Component {
   state = {
@@ -38,7 +39,8 @@ class App extends React.Component {
           <Route exact path="/singup" component={Singup} />
           <Route exact path="/:_id/calculadora" component={Calculadora} />
           <Route exact path="/:_id/solucoes" component={SolutionsList} />
-          <Route exact path="/:id/create" component={NewSolution} />
+          <Route exact path="/:_id/create" component={NewSolution} />
+          <Route exact path="/:_id/edit/sol_id" component={EditSolution} />
         </BrowserRouter>
       </div>
     );
