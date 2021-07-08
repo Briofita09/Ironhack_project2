@@ -10,6 +10,7 @@ import Calculadora from "./Calculadora";
 import SolutionsList from "./SolutionsList";
 import NewSolution from "./NewSolution";
 import EditSolution from "./EditSolution";
+import Delete from "./Delete";
 
 class App extends React.Component {
   state = {
@@ -41,6 +42,7 @@ class App extends React.Component {
           <Route exact path="/:_id/solucoes" component={SolutionsList} />
           <Route exact path="/:_id/create" component={NewSolution} />
           <Route exact path="/:_id/edit/sol_id" component={EditSolution} />
+          <Route exact path="/:_id/delete/sol_id" component ={Delete}/>
         </BrowserRouter>
       </div>
     );

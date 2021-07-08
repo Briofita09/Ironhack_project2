@@ -44,21 +44,21 @@ export default class SolutionsList extends React.Component {
                 <td>
                   <Link
                     className="me-5"
-                    to={`/:_id/edit/${params.sol_id}`}
+                    to={`/${this.props.match.params._id}/edit/${params.sol_id}`}
                     title="Editar"
                   >
                     <i className="fas fa-edit"></i>
                   </Link>
                   <Link
                     className="me-5"
-                    to={`/:_id/details/${params.sol_id}`}
+                    to={`/${this.props.match.params._id}/details/${params.sol_id}`}
                     title="Ver detalhes"
                   >
                     <i className="fas fa-info-circle"></i>
                   </Link>
 
                   <Link
-                    to={`/:_id/delete/${params.sol_id}`}
+                    to={`/${this.props.match.params._id}/delete/${params.sol_id}`}
                     title="Deletar solução"
                     className="text-danger"
                   >
