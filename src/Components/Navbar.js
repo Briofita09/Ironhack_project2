@@ -5,7 +5,7 @@ function Navbar(props) {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand nAvbar" to="/">
-          Chem Lab App
+          Chem Lab
         </Link>
         <button
           className="navbar-toggler"
@@ -26,7 +26,7 @@ function Navbar(props) {
                 activeClassName="active"
                 to="/singup"
               >
-                Criar nova conta
+                Novo Usuario
               </NavLink>
             </li>
             <li className="nav-item">
@@ -44,7 +44,7 @@ function Navbar(props) {
                 activeClassName="active"
                 to={`/${props.user}/create`}
               >
-                Adicionar Solução
+                Nova Solução
               </NavLink>
             </li>
             <li className="nav-item">

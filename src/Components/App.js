@@ -22,6 +22,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+        </style>
         <BrowserRouter>
           <Navbar user={this.state._id} />
           <Route
