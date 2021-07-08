@@ -26,7 +26,7 @@ class Singup extends Component {
   render() {
     return (
       <div>
-        <h1>Crie um usuario novo</h1>
+        <h1>Crie um usuário novo</h1>
         <form className="container m-5">
           <TextInput
             label="Email address"

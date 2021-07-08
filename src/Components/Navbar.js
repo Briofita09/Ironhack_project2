@@ -32,7 +32,7 @@ function Navbar(props) {
                 activeClassName="active"
                 to="/singup"
               >
-                Novo Usuario
+                Novo Usuário
               </NavLink>
             </li>
             <li className="nav-item">

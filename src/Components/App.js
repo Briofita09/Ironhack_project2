@@ -14,6 +14,7 @@ import EditSolution from "./EditSolution";
 class App extends React.Component {
   state = {
     _id: "",
+    sol_id: "",
   };
 
   SetUser = (_id) => {
