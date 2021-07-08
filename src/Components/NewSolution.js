@@ -12,104 +12,143 @@ export default class NewSolution extends React.Component {
     concentracao: "",
   };
 
-  componentDidMount = async () => {
+  /*   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`
+        `https://ironrest.herokuapp.com/FelipeEGabriel/`
       );
-      console.log(response.data.solucoes);
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
-  };
+  }; */
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (event) => {
-    //response.data.solucoes.push(this.state);
+  handleSubmit = async (event) => {
     event.preventDefault();
-    axios
-      .post(
-        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`,
-        this.state
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      let response = await axios.get(
+        `https://ironrest.herokuapp.com/findeOne/FelipeEGabriel?_id=${this.props.match.params._id}`
+      );
+
+      console.log(response);
+
+      let newSolution = [...response.data.solucoes, this.state];
+
+      let solutionUpdate = await axios.put(
+        `https://ironrest.herokuapp.com/FelipeEGabriel/${response.data._id}`,
+        { ...solutionUpdate.data.solucoes, newSolution }
+      );
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   render() {
-    console.log(this.state);
+    //console.log(this.state);
     return (
-      <div>
-        <h1>New Solution</h1>
+      <div className="newSolutionContainer all">
+        <div>
+          <h1>New Solution</h1>
+        </div>
         <hr />
-        <form onSubmit={this.handleSubmit}>
-          <label>Nome: </label>
-          <input
-            type="text"
-            name="name"
-            onChange={this.handleChange}
-            value={this.state.name}
-            required
-          />
-          <label>Responsavel: </label>
-          <input
-            type="text"
-            name="responsavel"
-            onChange={this.handleChange}
-            value={this.state.responsavel}
-            required
-          />
-          <label>Lote: </label>
-          <input
-            type="text"
-            name="lote"
-            onChange={this.handleChange}
-            value={this.state.lote}
-            required
-          />
-          <label>Data de Fabricação: </label>
-          <input
-            type="date"
-            name="data_de_fabricacao"
-            onChange={this.handleChange}
-            value={this.state.data_de_fabricacao}
-            required
-          />
-          <label>Validade: </label>
-          <input
-            type="date"
-            name="validade"
-            onChange={this.handleChange}
-            value={this.state.validade}
-            required
-          />
-          <label>Formula: </label>
-          <input
-            type="text"
-            name="solucao"
-            onChange={this.handleChange}
-            value={this.state.solucao}
-            required
-          />
-          <label>Concentração: </label>
-          <input
-            type="text"
-            name="concentracao"
-            onChange={this.handleChange}
-            value={this.state.concentracao}
-            required
-          />
-          <button type="submit" className="btn btn-primary">
-            Adicionar
-          </button>
-        </form>
+        <div>
+          <form
+            onSubmit={this.handleSubmit}
+            className="newSolutionContainerForm"
+          >
+            <div className="newSolutionItemForm">
+              <label>
+                <i className="fas fa-atom"></i>Nome:{" "}
+              </label>
+              <input
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                value={this.state.name}
+                required
+              />
+            </div>
+            <div className="newSolutionItemForm">
+              <label>
+                <i className="fas fa-atom"></i>Responsavel:{" "}
+              </label>
+              <input
+                type="text"
+                name="responsavel"
+                onChange={this.handleChange}
+                value={this.state.responsavel}
+                required
+              />
+            </div>
+            <div className="newSolutionItemForm">
+              <label>
+                <i className="fas fa-atom"></i>Lote:{" "}
+              </label>
+              <input
+                type="text"
+                name="lote"
+                onChange={this.handleChange}
+                value={this.state.lote}
+                required
+              />
+            </div>
+            <div className="newSolutionItemForm">
+              <label>
+                <i className="fas fa-atom"></i>Data de Fabricação:{" "}
+              </label>
+              <input
+                type="date"
+                name="data_de_fabricacao"
+                onChange={this.handleChange}
+                value={this.state.data_de_fabricacao}
+                required
+              />
+            </div>
+            <div className="newSolutionItemForm">
+              <label>
+                <i className="fas fa-atom"></i>Validade:{" "}
+              </label>
+              <input
+                type="date"
+                name="validade"
+                onChange={this.handleChange}
+                value={this.state.validade}
+                required
+              />
+            </div>
+            <div className="newSolutionItemForm">
+              <label>
+                <i className="fas fa-atom"></i>Formula:{" "}
+              </label>
+              <input
+                type="text"
+                name="solucao"
+                onChange={this.handleChange}
+                value={this.state.solucao}
+                required
+              />
+            </div>
+            <div className="newSolutionItemForm">
+              <label>
+                <i className="fas fa-atom"></i>Concentração:{" "}
+              </label>
+              <input
+                type="text"
+                name="concentracao"
+                onChange={this.handleChange}
+                value={this.state.concentracao}
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary mt-5">
+              Adicionar
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

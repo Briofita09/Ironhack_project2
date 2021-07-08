@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import flask from "../img/flask.png";
 
 class LogIn extends React.Component {
   state = {
@@ -83,60 +84,83 @@ class LogIn extends React.Component {
   render() {
     const errors = this.validate(this.state);
     return (
-      <div className="col-lg-6 m-4">
-        <form>
-          {/* Email input */}
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              className={`form-control ${this.renderClassname(
-                errors.email,
-                this.state.isBlurred.email
-              )}`}
-              id="exampleInputEmail1"
-              name="email"
-              onChange={this.handleChange}
-              onBlur={this.handleBlur}
-              value={this.state.email}
-              required
-            />
-            {this.renderFeedback(
-              errors.email,
-              this.state.isBlurred.email,
-              "You typed a valid e-mail"
-            )}
+      <div className="all">
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+        </style>
+        <header>
+          <h1 className="title">Chem Lab App</h1>
+        </header>
+        <main className="mainContainer">
+          <div className="mainItem descrition">
+            <div className="merchan">
+              <img src={flask} className="flaskLogo" />
+              <aside>O melhor catalogo para seu laboratorio!</aside>
+              <article>
+                Utilize nossa calculadora para um preparo mais rapido de
+                soluções. Faça o registro agora!
+              </article>
+            </div>
           </div>
-          {/* Password Input */}
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
-            <input
-              type="password"
-              className={`form-control ${this.renderClassname(
-                errors.password,
-                this.state.isBlurred.password
-              )}`}
-              id="exampleInputPassword1"
-              name="password"
-              onChange={this.handleChange}
-              onBlur={this.handleBlur}
-              value={this.state.password}
-              required
-            />
-            {this.renderFeedback(
-              errors.password,
-              this.state.isBlurred.password,
-              "You typed a valid password"
-            )}
+          <div className="formLogin mainItem">
+            <div className="col-lg-6 m-5">
+              <form>
+                {/* Email input */}
+                <div className="form-group">
+                  <label htmlFor="exampleInputEmail1">Email address</label>
+                  <input
+                    type="email"
+                    className={`form-control ${this.renderClassname(
+                      errors.email,
+                      this.state.isBlurred.email
+                    )}`}
+                    id="exampleInputEmail1"
+                    name="email"
+                    onChange={this.handleChange}
+                    onBlur={this.handleBlur}
+                    value={this.state.email}
+                    required
+                  />
+                  {this.renderFeedback(
+                    errors.email,
+                    this.state.isBlurred.email,
+                    "You typed a valid e-mail"
+                  )}
+                </div>
+                {/* Password Input */}
+                <div className="form-group">
+                  <label htmlFor="exampleInputPassword1">Password</label>
+                  <input
+                    type="password"
+                    className={`form-control ${this.renderClassname(
+                      errors.password,
+                      this.state.isBlurred.password
+                    )}`}
+                    id="exampleInputPassword1"
+                    name="password"
+                    onChange={this.handleChange}
+                    onBlur={this.handleBlur}
+                    value={this.state.password}
+                    required
+                  />
+                  {this.renderFeedback(
+                    errors.password,
+                    this.state.isBlurred.password,
+                    "You typed a valid password"
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  className="btn mt-5 btn-primary"
+                  onClick={this.handleSubmit}
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
-          <button
-            type="submit"
-            className="btn mt-5 btn-primary"
-            onClick={this.handleSubmit}
-          >
-            Submit
-          </button>
-        </form>
+        </main>
       </div>
     );
   }
