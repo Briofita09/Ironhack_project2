@@ -14,6 +14,7 @@ export default class Calculadora extends React.Component {
     let x = new molFormula(this.state.formula);
     let mass = x.getMass();
     return (this.grams = mass * this.state.volume * this.state.mols);
+    
   };
 
   handleChange = (event) => {
