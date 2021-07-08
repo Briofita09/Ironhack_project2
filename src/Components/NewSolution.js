@@ -10,6 +10,7 @@ export default class NewSolution extends React.Component {
     validade: "",
     solucao: "",
     concentracao: "",
+    sol_id: "",
   };
 
   /*   componentDidMount = async () => {
@@ -24,14 +25,20 @@ export default class NewSolution extends React.Component {
   }; */
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({
+      [event.target.name]: event.target.value,
+      sol_id: Date.now(),
+    });
+    console.log(
+      `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`
+    );
   };
 
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
       let response = await axios.get(
-        `https://ironrest.herokuapp.com/findeOne/FelipeEGabriel?_id=${this.props.match.params._id}`
+        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`
       );
 
       console.log(response);
@@ -40,8 +47,9 @@ export default class NewSolution extends React.Component {
 
       let solutionUpdate = await axios.put(
         `https://ironrest.herokuapp.com/FelipeEGabriel/${response.data._id}`,
-        { ...solutionUpdate.data.solucoes, newSolution }
+        { solucoes: newSolution }
       );
+      console.log(solutionUpdate);
     } catch (err) {
       console.log(err);
     }
@@ -52,7 +60,7 @@ export default class NewSolution extends React.Component {
     return (
       <div className="newSolutionContainer all">
         <div>
-          <h1>New Solution</h1>
+          <h1>Nova Solução</h1>
         </div>
         <hr />
         <div>
