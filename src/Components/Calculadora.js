@@ -70,7 +70,7 @@ export default class Calculadora extends React.Component {
         </form>
         <p>
           Você deve utilizar: <span>{this.grams} </span>
-          ml/gramas
+          ml ou gramas
         </p>
       </div>
     );

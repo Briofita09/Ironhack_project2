@@ -11,10 +11,11 @@ export default class SolutionsList extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get(
-        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.state._id}`
+        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`
       );
       console.log(response);
       this.setState({ solutions: [...response.data.solucoes] });
+      console.log(this.state.solutions);
     } catch (err) {
       console.log(err);
     }
@@ -22,23 +23,48 @@ export default class SolutionsList extends React.Component {
 
   render() {
     return (
-      <table className="table-dark">
+      <table className="table table-dark">
         <thead>
           <tr className="table-dark">
-            <th className="table-dark">Header placeholder</th>
-            <th className="table-dark">Header placeholder</th>
-            <th className="table-dark">Header placeholder</th>
-            <th className="table-dark">Header placeholder</th>
+            <th>Nome da Solução/Reagente</th>
+            <th>Concentração</th>
+            <th>Validade</th>
+            <th>Responsavel</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           {this.state.solutions.map((params) => {
             return (
-              <tr className="table-dark" key={params.name}>
-                <td className="table-dark">{params.name}</td>
-                <td className="table-dark">{params.lote}</td>
-                <td className="table-dark">{params.responsavel}</td>
-                <td className="table-dark">{params.data_de_fabricacao}</td>
+              <tr className="table-dark" key={params.sol_id}>
+                <td>{params.name}</td>
+                <td>{params.concentracao}</td>
+                <td>{params.validade}</td>
+                <td>{params.responsavel}</td>
+                <td>
+                  <Link
+                    className="me-5"
+                    to={`/${this.props.match.params._id}/edit/${params.sol_id}`}
+                    title="Editar"
+                  >
+                    <i className="fas fa-edit"></i>
+                  </Link>
+                  <Link
+                    className="me-5"
+                    to={`/${this.props.match.params._id}/details/${params.sol_id}`}
+                    title="Ver detalhes"
+                  >
+                    <i className="fas fa-info-circle"></i>
+                  </Link>
+
+                  <Link
+                    to={`/${this.props.match.params._id}/delete/${params.sol_id}`}
+                    title="Deletar solução"
+                    className="text-danger"
+                  >
+                    <i className="fas fa-trash-alt"></i>
+                  </Link>
+                </td>
               </tr>
             );
           })}
@@ -47,5 +73,4 @@ export default class SolutionsList extends React.Component {
     );
   }
 }
-
 //email, senha, id {solucoes {responsavel, lote, data de fabricacao, validade, solucao}}

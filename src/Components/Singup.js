@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TextInput from "./TextInput";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Singup extends Component {
   state = {
@@ -12,7 +13,7 @@ class Singup extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = async (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     try {
       let response = await axios.post(
         "https://ironrest.herokuapp.com/FelipeEGabriel",
@@ -25,23 +26,28 @@ class Singup extends Component {
   render() {
     return (
       <div>
+        <h1>Crie um usuario novo</h1>
         <form className="container m-5">
           <TextInput
             label="Email address"
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
+            required
           />
           <TextInput
             label="Password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
+            required
           />
         </form>
-        <button onClick={this.handleSubmit} className="m-5 btn btn-primary">
-          Submit
-        </button>
+        <Link to={"/"}>
+          <button onClick={this.handleSubmit} className="m-5 btn btn-primary">
+            Submit
+          </button>
+        </Link>
       </div>
     );
   }
