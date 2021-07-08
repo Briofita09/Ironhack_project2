@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 import Navbar from "./Navbar";
 import LogIn from "./Login";
@@ -10,6 +10,8 @@ import Calculadora from "./Calculadora";
 import SolutionsList from "./SolutionsList";
 import NewSolution from "./NewSolution";
 import EditSolution from "./EditSolution";
+import SolutionDetails from "./SolutionDetails";
+import Delete from "./Delete";
 
 class App extends React.Component {
   state = {
@@ -24,10 +26,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-        </style>
         <BrowserRouter>
           <Navbar user={this.state._id} />
           <Route
@@ -41,7 +39,13 @@ class App extends React.Component {
           <Route exact path="/:_id/calculadora" component={Calculadora} />
           <Route exact path="/:_id/solucoes" component={SolutionsList} />
           <Route exact path="/:_id/create" component={NewSolution} />
-          <Route exact path="/:_id/edit/sol_id" component={EditSolution} />
+          <Route exact path="/:_id/edit/:sol_id" component={EditSolution} />
+          <Route
+            exact
+            path="/:_id/details/:sol_id"
+            component={SolutionDetails}
+          />
+          <Route exact path="/:_id/delete/:sol_id" component={Delete} />
         </BrowserRouter>
       </div>
     );

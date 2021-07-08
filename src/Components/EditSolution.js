@@ -17,9 +17,16 @@ export default class EditSolution extends React.Component {
   componentDidMount = async () => {
     try {
       let response = await axios.get(
-        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}/edit/${this.props.match.params.sol_id}`
+        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`
       );
-      console.log(response.data.solucoes);
+
+      let result = response.data.solucoes.find((el) => {
+        return el.sol_id === this.props.match.params.sol_id;
+      });
+
+      if (result) {
+        this.setState({ ...result });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -32,9 +39,24 @@ export default class EditSolution extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      let resposta = await axios.get(
+        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`
+      );
+
+      let resposta2 = resposta.data.solucoes.map((el) => {
+        if (el.sol_id === this.props.match.params.sol_id) {
+          el = { ...this.state };
+          return el;
+        } else {
+          return el;
+        }
+      });
+
+      resposta.solucoes = [...resposta2];
+
       let response = await axios.put(
-        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}/edit/${this.props.match.params.sol_id}`,
-        this.state
+        `https://ironrest.herokuapp.com/FelipeEGabriel/${this.props.match.params._id}`,
+        resposta
       );
       this.props.history.push(`/${this.props.match.params._id}/solucoes`);
     } catch (err) {
