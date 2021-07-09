@@ -12,6 +12,7 @@ import NewSolution from "./NewSolution";
 import EditSolution from "./EditSolution";
 import SolutionDetails from "./SolutionDetails";
 import Delete from "./Delete";
+import Footer from "./Footer";
 
 class App extends React.Component {
   state = {
@@ -47,6 +48,7 @@ class App extends React.Component {
           />
           <Route exact path="/:_id/delete/:sol_id" component={Delete} />
         </BrowserRouter>
+        <Footer />
       </div>
     );
   }
