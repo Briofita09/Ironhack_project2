@@ -25,9 +25,9 @@ class Singup extends Component {
   };
   render() {
     return (
-      <div className="all">
-        <h1>Crie um usuário novo</h1>
-        <form className="container m-5">
+      <div className="singupClass all">
+        <h1 className="singupTitle">Crie um usuário novo</h1>
+        <form className="container mb-5">
           <TextInput
             label="Email address"
             name="email"
@@ -44,7 +44,7 @@ class Singup extends Component {
           />
         </form>
         <Link to={"/"}>
-          <button onClick={this.handleSubmit} className="m-5 btn btn-primary">
+          <button onClick={this.handleSubmit} className="mt-5 btn btn-primary">
             Submit
           </button>
         </Link>

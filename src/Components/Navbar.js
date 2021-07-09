@@ -8,7 +8,7 @@ function Navbar(props) {
     >
       <div className="container-fluid">
         <Link className="navbar-brand nAvbar" to="/">
-          Chem Lab
+          ChemCulator
         </Link>
         <div>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">

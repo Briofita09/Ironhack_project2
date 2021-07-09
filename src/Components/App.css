@@ -71,3 +71,19 @@ span {
   align-items: center;
   align-content: center;
 }
+
+.state {
+  font-size: 1.32rem;
+}
+
+.solutionDetailsItem {
+  text-align: center;
+}
+
+.singupClass {
+  text-align: center;
+}
+
+.singupTitle {
+  margin-bottom: 120px;
+}

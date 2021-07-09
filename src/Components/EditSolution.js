@@ -66,7 +66,7 @@ export default class EditSolution extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="all">
         <h1>Editar Solução</h1>
         <hr />
         <div>
