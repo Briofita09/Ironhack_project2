@@ -4,8 +4,8 @@
 ChemCulator is a web app to catalog reagents and solutions used in laboratories. The app has a calculator feature to facilitate the preparation of solutions. A simple interface that utilizes React to ease navigation.
 
 ## About the creators
-Felipe Osorio - Aspiring Full-Stack developer and student at IronHack
-Gabriel Furquim - Aspiring Full-Stack developer and student at IronHack
+- Felipe Osorio - Aspiring Full-Stack developer and student at IronHack
+- Gabriel Furquim - Aspiring Full-Stack developer and student at IronHack
 
 ## Signup now!
 You can create an user and start using [on this link!](https://sharp-swanson-89e035.netlify.app/singup)
