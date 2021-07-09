@@ -32,37 +32,37 @@ export default class SolutionDetails extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="newSolutionContainer all">
         <h1>Detalhes da Solução</h1>
         <hr />
         <div>
-          <div>
-            <h3>Nome: </h3>
-            <h4>{this.state.name}</h4>
+          <div className="solutionDetailsItem">
+            <h2>Nome: </h2>
+            <p className="state">{this.state.name}</p>
           </div>
-          <div>
+          <div className="solutionDetailsItem">
             <h3>Responsavel: </h3>
-            <h4>{this.state.responsavel}</h4>
+            <p className="state">{this.state.responsavel}</p>
           </div>
-          <div>
+          <div className="solutionDetailsItem">
             <h3>Lote: </h3>
-            <h4>{this.state.lote}</h4>
+            <p className="state">{this.state.lote}</p>
           </div>
-          <div>
+          <div className="solutionDetailsItem">
             <h3>Data de Fabricação: </h3>
-            <h4>{this.state.data_de_fabricacao}</h4>
+            <p className="state">{this.state.data_de_fabricacao}</p>
           </div>
-          <div>
+          <div className="solutionDetailsItem">
             <h3>Validade: </h3>
-            <h4>{this.state.validade}</h4>
+            <p className="state">{this.state.validade}</p>
           </div>
-          <div>
+          <div className="solutionDetailsItem">
             <h3>Formula: </h3>
-            <h4>{this.state.solucao}</h4>
+            <p className="state">{this.state.solucao}</p>
           </div>
-          <div>
+          <div className="solutionDetailsItem">
             <h3>Concentração: </h3>
-            <h4>{this.state.concentracao}</h4>
+            <p className="state">{this.state.concentracao}</p>
           </div>
         </div>
       </div>

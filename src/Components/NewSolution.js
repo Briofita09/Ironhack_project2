@@ -45,106 +45,106 @@ export default class NewSolution extends React.Component {
   };
 
   render() {
-    //console.log(this.state);
     return (
-      <div className="newSolutionContainer all">
-        <div>
-          <h1>Nova Solução</h1>
-        </div>
-        <hr />
-        <div>
-          <form
-            onSubmit={this.handleSubmit}
-            className="newSolutionContainerForm"
-          >
-            <div className="newSolutionItemForm">
-              <label>
-                <i className="fas fa-atom"></i>Nome:{" "}
-              </label>
-              <input
-                type="text"
-                name="name"
-                onChange={this.handleChange}
-                value={this.state.name}
-                required
-              />
-            </div>
-            <div className="newSolutionItemForm">
-              <label>
-                <i className="fas fa-atom"></i>Responsavel:{" "}
-              </label>
-              <input
-                type="text"
-                name="responsavel"
-                onChange={this.handleChange}
-                value={this.state.responsavel}
-                required
-              />
-            </div>
-            <div className="newSolutionItemForm">
-              <label>
-                <i className="fas fa-atom"></i>Lote:{" "}
-              </label>
-              <input
-                type="text"
-                name="lote"
-                onChange={this.handleChange}
-                value={this.state.lote}
-                required
-              />
-            </div>
-            <div className="newSolutionItemForm">
-              <label>
-                <i className="fas fa-atom"></i>Data de Fabricação:{" "}
-              </label>
-              <input
-                type="date"
-                name="data_de_fabricacao"
-                onChange={this.handleChange}
-                value={this.state.data_de_fabricacao}
-                required
-              />
-            </div>
-            <div className="newSolutionItemForm">
-              <label>
-                <i className="fas fa-atom"></i>Validade:{" "}
-              </label>
-              <input
-                type="date"
-                name="validade"
-                onChange={this.handleChange}
-                value={this.state.validade}
-                required
-              />
-            </div>
-            <div className="newSolutionItemForm">
-              <label>
-                <i className="fas fa-atom"></i>Formula:{" "}
-              </label>
-              <input
-                type="text"
-                name="solucao"
-                onChange={this.handleChange}
-                value={this.state.solucao}
-                required
-              />
-            </div>
-            <div className="newSolutionItemForm">
-              <label>
-                <i className="fas fa-atom"></i>Concentração:{" "}
-              </label>
-              <input
-                type="text"
-                name="concentracao"
-                onChange={this.handleChange}
-                value={this.state.concentracao}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary mt-5">
-              Adicionar
-            </button>
-          </form>
+      <div className="all">
+        <div className="newSolutionContainer">
+          <div>
+            <h1>Nova Solução</h1>
+          </div>
+          <div>
+            <form
+              onSubmit={this.handleSubmit}
+              className="newSolutionContainerForm"
+            >
+              <div className="newSolutionItemForm">
+                <label>
+                  <i className="fas fa-atom"></i>Nome:{" "}
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  onChange={this.handleChange}
+                  value={this.state.name}
+                  required
+                />
+              </div>
+              <div className="newSolutionItemForm">
+                <label>
+                  <i className="fas fa-atom"></i>Responsavel:{" "}
+                </label>
+                <input
+                  type="text"
+                  name="responsavel"
+                  onChange={this.handleChange}
+                  value={this.state.responsavel}
+                  required
+                />
+              </div>
+              <div className="newSolutionItemForm">
+                <label>
+                  <i className="fas fa-atom"></i>Lote:{" "}
+                </label>
+                <input
+                  type="text"
+                  name="lote"
+                  onChange={this.handleChange}
+                  value={this.state.lote}
+                  required
+                />
+              </div>
+              <div className="newSolutionItemForm">
+                <label>
+                  <i className="fas fa-atom"></i>Data de Fabricação:{" "}
+                </label>
+                <input
+                  type="date"
+                  name="data_de_fabricacao"
+                  onChange={this.handleChange}
+                  value={this.state.data_de_fabricacao}
+                  required
+                />
+              </div>
+              <div className="newSolutionItemForm">
+                <label>
+                  <i className="fas fa-atom"></i>Validade:{" "}
+                </label>
+                <input
+                  type="date"
+                  name="validade"
+                  onChange={this.handleChange}
+                  value={this.state.validade}
+                  required
+                />
+              </div>
+              <div className="newSolutionItemForm">
+                <label>
+                  <i className="fas fa-atom"></i>Formula:{" "}
+                </label>
+                <input
+                  type="text"
+                  name="solucao"
+                  onChange={this.handleChange}
+                  value={this.state.solucao}
+                  required
+                />
+              </div>
+              <div className="newSolutionItemForm">
+                <label>
+                  <i className="fas fa-atom"></i>Concentração:{" "}
+                </label>
+                <input
+                  type="text"
+                  name="concentracao"
+                  onChange={this.handleChange}
+                  value={this.state.concentracao}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-primary mt-5">
+                Adicionar
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     );
