@@ -9,7 +9,7 @@ body {
 
 .all {
   background: linear-gradient(lightblue, green);
-  height: 100vh;
+  height: 83.2vh;
 }
 
 p {
@@ -86,4 +86,13 @@ span {
 
 .singupTitle {
   margin-bottom: 120px;
+}
+
+footer {
+  background: url("../img/bg.jpg");
+  text-align: center;
+  padding: 40px 0;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
 }
